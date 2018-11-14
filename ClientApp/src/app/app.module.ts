@@ -21,6 +21,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LocationComponent } from './pages/location/location.component';
 import { SelectCropComponent } from './pages/select-crop/select-crop.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +31,15 @@ import { SelectCropComponent } from './pages/select-crop/select-crop.component';
     CounterComponent,
     FetchDataComponent,
     LocationComponent,
-    SelectCropComponent
+    SelectCropComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: LocationComponent, pathMatch: 'full' },
+     // { path: '', component: LocationComponent, pathMatch: 'full' },
       { path: 'crop', component: SelectCropComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ]),

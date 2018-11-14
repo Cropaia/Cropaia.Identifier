@@ -1,10 +1,17 @@
+using Cropaia.DAL;
+using Cropaia.DAL.Models;
+using Cropaia.DAL.Repositories;
+using Cropaia.Identifier.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 using Newtonsoft.Json.Serialization;
 
 namespace Cropaia.Identifier
@@ -17,6 +24,8 @@ namespace Cropaia.Identifier
         }
 
         public IConfiguration Configuration { get; }
+        public static readonly LoggerFactory MyLoggerFactory
+            = new LoggerFactory(new[] { new ConsoleLoggerProvider((_, __) => true, true) });
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -24,6 +33,11 @@ namespace Cropaia.Identifier
             services.AddMvc()
                 //.AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver())
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            var configurationSection = Configuration.GetSection("ConnectionStrings:DefaultConnection");
+            services.AddDbContext<YieldsAppContext>(options => options
+            .UseLoggerFactory(MyLoggerFactory)
+            .UseSqlServer(configurationSection.Value));
+            services.AddScoped<ICropRepository, CropRepository>();
 
 
             // In production, the Angular files will be served from this directory
@@ -36,6 +50,12 @@ namespace Cropaia.Identifier
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
+            AutoMapper.Mapper.Initialize(config =>
+            {
+                config.CreateMap<Crop, CropModel>().ReverseMap();
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

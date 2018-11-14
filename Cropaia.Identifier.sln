@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cropaia.Identifier", "Cropaia.Identifier.csproj", "{B38D3277-FE89-4351-AD52-AAA3DE21CC20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cropaia.DAL", "..\Cropaia.DAL\Cropaia.DAL.csproj", "{D83E090E-0613-45D5-A804-57A093A36FF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B38D3277-FE89-4351-AD52-AAA3DE21CC20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B38D3277-FE89-4351-AD52-AAA3DE21CC20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B38D3277-FE89-4351-AD52-AAA3DE21CC20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D83E090E-0613-45D5-A804-57A093A36FF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D83E090E-0613-45D5-A804-57A093A36FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D83E090E-0613-45D5-A804-57A093A36FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D83E090E-0613-45D5-A804-57A093A36FF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

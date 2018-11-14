@@ -1,0 +1,12 @@
+.wrap {
+  background: #383838;
+  color: #2eb82e !important;
+}
+
+::ng-deep .mat-form-field-placeholder {
+  color: #006600;
+}
+
+::ng-deep .mat-focused .mat-form-field-placeholder {
+  color: #006600;
+}
