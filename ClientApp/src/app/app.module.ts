@@ -19,8 +19,10 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { LocationComponent } from './pages/location/location.component';
 import { SelectCropComponent } from './pages/select-crop/select-crop.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LocationComponent } from './pages/location/location.component';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
@@ -30,30 +32,26 @@ import { LoginComponent } from './pages/login/login.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    LocationComponent,
     SelectCropComponent,
+    LocationComponent,
     LoginComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot([
-     // { path: '', component: LocationComponent, pathMatch: 'full' },
-      { path: 'crop', component: SelectCropComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-    ]),
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ButtonModule,
     AutoCompleteModule,
+    GooglePlaceModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyA9l65esffiIy_QiRW9w_Eq3xvoXOyg6ig',
-      //apiKey: 'AIzaSyA0jl40I_UZG8eDdZIrR7xXS8rbEnA9iBg',
+      apiKey: 'AIzaSyCuvIK_NWsMNIsHexWOQQ9xMcCakaamrP8',
       libraries: ["places"]
-    })
+    }),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
