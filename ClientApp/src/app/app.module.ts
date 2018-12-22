@@ -19,9 +19,9 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { LocationComponent } from './pages/location/location.component';
 import { SelectCropComponent } from './pages/select-crop/select-crop.component';
 import { LoginComponent } from './pages/login/login.component';
+import { GooglePlacesDirective } from './google-places.directive';
 
 @NgModule({
   declarations: [
@@ -30,9 +30,9 @@ import { LoginComponent } from './pages/login/login.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    LocationComponent,
     SelectCropComponent,
-    LoginComponent
+    LoginComponent,
+    GooglePlacesDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
